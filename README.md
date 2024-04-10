@@ -1,0 +1,1 @@
+Um sistema que armazena informações de infratores que tiveram passagem pela polícia, as informações vão de, altura, idade, tatuagem, etinia entre outras coisas necessárias para fazer a identificação, mas não só isso, será possível armazenar outras coisas, como filiação a alguma organização criminosa e a pena do indivíduo.
