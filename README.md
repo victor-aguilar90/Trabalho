@@ -1,1 +1,3 @@
+Grupo 1
+
 Um sistema de adoção que simplifica o processo de encontrar e adotar animais de estimação. Ele permite que abrigos e centros de adoção publiquem perfis detalhados dos animais disponíveis, facilitando para os interessados em adotar encontrarem o animal certo para eles. Os usuários podem navegar pelos perfis, preencher formulários de inscrição e agendar visitas para conhecer os animais pessoalmente. Além disso, o sistema pode incluir recursos para gerenciar o processo de adoção, como agendamento de entrevistas e acompanhamento pós-adoção, tornando todo o processo mais fácil e transparente.
