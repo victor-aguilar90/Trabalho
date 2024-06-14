@@ -1,68 +1,84 @@
-create database Petshop;
-use Petshop;
+CREATE DATABASE Petshop;
+USE Petshop;
+/*DROP DATABASE Petshop;*/
 
-create table Funcionario (
-	idFuncionario int auto_increment primary key,
-    nome varchar(60) not null,
-    cargo varchar(60),
-    salario decimal(10,2) not null,
-    data_contratacao date not null,
-    email varchar(70),
-    telefone int not null
+CREATE TABLE cargo (
+    cod_cargo INT AUTO_INCREMENT PRIMARY KEY,
+    nome_cargo VARCHAR(25)
 );
 
-create table Produto (
-	idProduto int auto_increment primary key,
-    nome varchar(60),
-    preco decimal(10,2),
-    estoque int
+CREATE TABLE funcionario (
+    cod_func INT AUTO_INCREMENT PRIMARY KEY,
+    nome_func VARCHAR(120) NOT NULL,
+    email_func VARCHAR(120) UNIQUE,
+    telefone_func VARCHAR(9),
+    cod_cargo INT NOT NULL,
+    FOREIGN KEY (cod_cargo) REFERENCES cargo (cod_cargo)
 );
 
-create table Clientes (
-	idClientes int auto_increment primary key,
-    nome varchar(50),
-    endereco varchar(50),
-    email varchar(100),
-    telefone varchar(20)
+CREATE TABLE cliente (
+    cod_cliente INT AUTO_INCREMENT PRIMARY KEY,
+    nome_cli VARCHAR(120) NOT NULL,
+    telefone_cli VARCHAR(9),
+    email VARCHAR(120),
+    endereco VARCHAR(255)
 );
 
-create table Vendas (
-	idVendas int auto_increment primary key,
-    data_hora datetime,
-    valor_venda decimal(10,2),
-    idCliente int,
-    idFuncionario int,
-    foreign key (idCliente) references Clientes(idClientes),
-    foreign key (idFuncionario) references Funcionario(idFuncionario)
+CREATE TABLE animal (
+    cod_animal INT AUTO_INCREMENT PRIMARY KEY,
+    nome_animal VARCHAR(120) NOT NULL,
+    tipo VARCHAR(50),
+    cod_cliente INT NOT NULL,
+    FOREIGN KEY (cod_cliente) REFERENCES cliente(cod_cliente)
 );
 
-create table Itens_Venda (
-	idItens int auto_increment primary key,
-    idVendas int,
-    idProduto int,
-    quantidade decimal(10,2),
-    preco_unitario decimal(10,2),
-    foreign key (idVendas) references Vendas(idVendas),
-    foreign key (idProduto) references Produto(idProduto)
+CREATE TABLE produto (
+    cod_produto INT AUTO_INCREMENT PRIMARY KEY,
+    nome_produto VARCHAR(120) NOT NULL,
+    descricao TEXT,
+    preco_produto DECIMAL (10,2) NOT NULL,
+    quantidade INT NOT NULL,
+    CHECK (preco_produto > 0),
+    CHECK (quantidade > 0)
 );
 
-create table Servicos (
-	idServicos int auto_increment primary key,
-    nome_servico varchar(100),
-    descricao text,
-    preco decimal(10,2)
+CREATE TABLE vendas (
+    cod_vendas INT AUTO_INCREMENT PRIMARY KEY,
+    data_venda DATE NOT NULL,
+    cod_cli INT,
+    total DECIMAL(10,2) NOT NULL,
+    cod_func INT,
+    FOREIGN KEY (cod_cli) REFERENCES cliente(cod_cliente),
+    FOREIGN KEY (cod_func) REFERENCES funcionario(cod_func)
 );
 
-create table Agendamento_servicos (
-	idAgendamento int auto_increment primary key,
-    data_hora datetime,
-    idCliente int,
-    idServico int,
-    observacoes text,
-    foreign key (idCliente) references Clientes(idClientes),
-    foreign key (idServico) references Servicos(idServicos)
+CREATE TABLE itens_vendas (
+    cod_itens_vendas INT AUTO_INCREMENT PRIMARY KEY,
+    cod_vendas INT NOT NULL,
+    cod_produto INT NOT NULL,
+    preco DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (cod_vendas) REFERENCES vendas(cod_vendas),
+    FOREIGN KEY (cod_produto) REFERENCES produto(cod_produto)
 );
 
+CREATE TABLE servico (
+    cod_servico INT AUTO_INCREMENT PRIMARY KEY,
+    nome_servico VARCHAR(100) NOT NULL,
+    descricao TEXT,
+    preco_servico DECIMAL(10, 2) NOT NULL
+);
 
-
-
+CREATE TABLE agendamento (
+    cod_agendamento INT AUTO_INCREMENT PRIMARY KEY,
+    data_agendamento DATE NOT NULL,
+    hora_agendamento TIME NOT NULL,
+    cod_cli INT,
+    cod_animal INT,
+    cod_servico INT,
+    cod_func INT,
+    status VARCHAR(9),
+    FOREIGN KEY (cod_cli) REFERENCES cliente(cod_cliente),
+    FOREIGN KEY (cod_animal) REFERENCES animal(cod_animal),
+    FOREIGN KEY (cod_servico) REFERENCES servico(cod_servico),
+    FOREIGN KEY (cod_func) REFERENCES funcionario(cod_func)
+);
