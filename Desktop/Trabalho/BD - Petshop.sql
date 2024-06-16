@@ -12,6 +12,7 @@ CREATE TABLE funcionario (
     nome_func VARCHAR(120) NOT NULL,
     email_func VARCHAR(120) UNIQUE,
     telefone_func VARCHAR(9),
+    senha_func VARCHAR(255) NOT NULL,
     cod_cargo INT NOT NULL,
     FOREIGN KEY (cod_cargo) REFERENCES cargo (cod_cargo)
 );
