@@ -7,17 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data;
 using static PS.Modelos;
 
 namespace PS
 {
     public partial class F_CadastroFunc : Form
     {
+
+        private BancoDeDados db;
+
         public F_CadastroFunc()
         {
             InitializeComponent();
-            //BancoDeDados bd = new BancoDeDados();
-            //Dg_Func.DataSource = bd.ExecutarConsultaDataTabble("Select * from funcionario"); 
+            db = new BancoDeDados(); 
         }
 
         private void F_CadastroFunc_Load(object sender, EventArgs e)
@@ -58,19 +61,34 @@ namespace PS
                 MessageBox.Show("Senha não compativel");
             }
 
-            Funcionario funcionario = new Funcionario();
+            /*Funcionario funcionario = new Funcionario();
             Tb_NomeFunc.Text = funcionario.NomeFunc;
             Tb_SenhaFunc.Text = funcionario.SenhaFunc;
             Tb_EmailFunc.Text = funcionario.EmailFunc;
-            Tb_TelefoneFunc.Text = funcionario.TelefoneFunc;
+            Tb_TelefoneFunc.Text = funcionario.TelefoneFunc;*/
 
-            string tabela = "funcionario";
-            string[] colunas = { "nome_func", "email_func", "telefone_func", "senha_func" };
-            object[] valores = { funcionario.NomeFunc, funcionario.EmailFunc, funcionario.TelefoneFunc, funcionario.SenhaFunc };
+            string nomeF = Tb_NomeFunc.Text;
+            string emailF = Tb_EmailFunc.Text;
+            int telF = int.Parse(Tb_TelefoneFunc.Text);
+            string senhaF = Tb_SenhaFunc.Text;
 
-            BancoDeDados conexao = new BancoDeDados();
 
-            conexao.InserirDados(tabela, colunas, valores);
+
+            string[] colunas = { "nome_func", "sal_func","email_func", "telefone_func", "senha_func", "cod_cargo" };
+            object[] valores = {nomeF, "", emailF, telF, senhaF, "" };
+
+            db.InserirDados("funcionario", colunas, valores);
+
+            try
+            {
+                db.InserirDados("funcionario", colunas, valores);
+                MessageBox.Show("Dados inseridos com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao inserir dados: {ex.Message}");
+            }
+
         }
 
         private void Btn_Visualizar_Click(object sender, EventArgs e)
@@ -115,6 +133,11 @@ namespace PS
         {
             REcadastroFuncionario rEcadastroFuncionario = new REcadastroFuncionario();
             rEcadastroFuncionario.ShowDialog();
+        }
+
+        private void Cb_Cargo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

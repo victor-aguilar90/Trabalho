@@ -205,6 +205,7 @@
             this.Cb_Cargo.Name = "Cb_Cargo";
             this.Cb_Cargo.Size = new System.Drawing.Size(136, 21);
             this.Cb_Cargo.TabIndex = 5;
+            this.Cb_Cargo.SelectedIndexChanged += new System.EventHandler(this.Cb_Cargo_SelectedIndexChanged);
             // 
             // Tb_SenhaFunc
             // 

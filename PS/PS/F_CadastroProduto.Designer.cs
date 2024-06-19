@@ -32,15 +32,15 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Btn_Cadastrar = new System.Windows.Forms.Button();
-            this.Tb_QuantidadeDeProduto = new System.Windows.Forms.TextBox();
-            this.Tb_EmailFunc = new System.Windows.Forms.TextBox();
+            this.QtdP = new System.Windows.Forms.TextBox();
+            this.PrecoP = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.Lb_Cadastro = new System.Windows.Forms.Label();
-            this.Tb_SenhaFunc = new System.Windows.Forms.TextBox();
-            this.Tb_NomeProduto = new System.Windows.Forms.TextBox();
+            this.DescP = new System.Windows.Forms.TextBox();
+            this.NomeProduto = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -67,15 +67,15 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Ivory;
             this.panel1.Controls.Add(this.Btn_Cadastrar);
-            this.panel1.Controls.Add(this.Tb_QuantidadeDeProduto);
-            this.panel1.Controls.Add(this.Tb_EmailFunc);
+            this.panel1.Controls.Add(this.QtdP);
+            this.panel1.Controls.Add(this.PrecoP);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.Lb_Cadastro);
-            this.panel1.Controls.Add(this.Tb_SenhaFunc);
-            this.panel1.Controls.Add(this.Tb_NomeProduto);
+            this.panel1.Controls.Add(this.DescP);
+            this.panel1.Controls.Add(this.NomeProduto);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(309, 387);
@@ -91,22 +91,23 @@
             this.Btn_Cadastrar.TabIndex = 24;
             this.Btn_Cadastrar.Text = "Cadastrar";
             this.Btn_Cadastrar.UseVisualStyleBackColor = false;
+            this.Btn_Cadastrar.Click += new System.EventHandler(this.Btn_Cadastrar_Click);
             // 
-            // Tb_QuantidadeDeProduto
+            // QtdP
             // 
-            this.Tb_QuantidadeDeProduto.Location = new System.Drawing.Point(37, 191);
-            this.Tb_QuantidadeDeProduto.Name = "Tb_QuantidadeDeProduto";
-            this.Tb_QuantidadeDeProduto.Size = new System.Drawing.Size(31, 20);
-            this.Tb_QuantidadeDeProduto.TabIndex = 23;
-            this.Tb_QuantidadeDeProduto.TextChanged += new System.EventHandler(this.Tb_QuantidadeDeProduto_TextChanged);
-            this.Tb_QuantidadeDeProduto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Tb_TelefoneFunc_KeyPress);
+            this.QtdP.Location = new System.Drawing.Point(37, 191);
+            this.QtdP.Name = "QtdP";
+            this.QtdP.Size = new System.Drawing.Size(31, 20);
+            this.QtdP.TabIndex = 23;
+            this.QtdP.TextChanged += new System.EventHandler(this.Tb_QuantidadeDeProduto_TextChanged);
+            this.QtdP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Tb_TelefoneFunc_KeyPress);
             // 
-            // Tb_EmailFunc
+            // PrecoP
             // 
-            this.Tb_EmailFunc.Location = new System.Drawing.Point(37, 151);
-            this.Tb_EmailFunc.Name = "Tb_EmailFunc";
-            this.Tb_EmailFunc.Size = new System.Drawing.Size(136, 20);
-            this.Tb_EmailFunc.TabIndex = 22;
+            this.PrecoP.Location = new System.Drawing.Point(37, 151);
+            this.PrecoP.Name = "PrecoP";
+            this.PrecoP.Size = new System.Drawing.Size(136, 20);
+            this.PrecoP.TabIndex = 22;
             // 
             // label4
             // 
@@ -155,20 +156,20 @@
             this.Lb_Cadastro.TabIndex = 15;
             this.Lb_Cadastro.Text = "Cadastro de produto";
             // 
-            // Tb_SenhaFunc
+            // DescP
             // 
-            this.Tb_SenhaFunc.Location = new System.Drawing.Point(38, 230);
-            this.Tb_SenhaFunc.Multiline = true;
-            this.Tb_SenhaFunc.Name = "Tb_SenhaFunc";
-            this.Tb_SenhaFunc.Size = new System.Drawing.Size(253, 99);
-            this.Tb_SenhaFunc.TabIndex = 4;
+            this.DescP.Location = new System.Drawing.Point(38, 230);
+            this.DescP.Multiline = true;
+            this.DescP.Name = "DescP";
+            this.DescP.Size = new System.Drawing.Size(253, 99);
+            this.DescP.TabIndex = 4;
             // 
-            // Tb_NomeProduto
+            // NomeProduto
             // 
-            this.Tb_NomeProduto.Location = new System.Drawing.Point(37, 112);
-            this.Tb_NomeProduto.Name = "Tb_NomeProduto";
-            this.Tb_NomeProduto.Size = new System.Drawing.Size(136, 20);
-            this.Tb_NomeProduto.TabIndex = 0;
+            this.NomeProduto.Location = new System.Drawing.Point(37, 112);
+            this.NomeProduto.Name = "NomeProduto";
+            this.NomeProduto.Size = new System.Drawing.Size(136, 20);
+            this.NomeProduto.TabIndex = 0;
             // 
             // F_CadastroProduto
             // 
@@ -184,6 +185,7 @@
             this.Name = "F_CadastroProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Produto";
+            this.Load += new System.EventHandler(this.F_CadastroProduto_Load);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -198,14 +200,14 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button Btn_Cadastrar;
-        private System.Windows.Forms.TextBox Tb_QuantidadeDeProduto;
-        private System.Windows.Forms.TextBox Tb_EmailFunc;
+        private System.Windows.Forms.TextBox QtdP;
+        private System.Windows.Forms.TextBox PrecoP;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label Lb_Cadastro;
-        private System.Windows.Forms.TextBox Tb_SenhaFunc;
-        private System.Windows.Forms.TextBox Tb_NomeProduto;
+        private System.Windows.Forms.TextBox DescP;
+        private System.Windows.Forms.TextBox NomeProduto;
     }
 }

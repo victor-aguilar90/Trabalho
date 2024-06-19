@@ -29,5 +29,10 @@ namespace PS
                 e.Handled = true;
             }
         }
+
+        private void F_Agendamento_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

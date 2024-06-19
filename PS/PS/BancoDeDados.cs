@@ -14,6 +14,7 @@ namespace PS
         private string server;
         private string database;
         private string port;
+        private string user;
         private string password;
         private MySqlConnection connection;
 
@@ -22,6 +23,7 @@ namespace PS
             this.server = "localhost";
             this.database = "Petshop";
             this.port = "3306";
+            this.user = "root";
             this.password = "";
 
             Initialize();
@@ -29,8 +31,7 @@ namespace PS
 
         private void Initialize()
         {
-            string connectionString = $"Server={server};Database={database};Port={port};Pwd={password};";
-
+            string connectionString = $"Server={server};Database={database};Port={port};User={user};Password={password};";
             connection = new MySqlConnection(connectionString);
         }
 
@@ -78,27 +79,108 @@ namespace PS
                 {
                     Console.WriteLine($"Erro ao executar a consulta SQL: {ex.Message}");
                 }
-
-                this.CloseConnection();
+                finally
+                {
+                    this.CloseConnection();
+                }
             }
         }
 
-
-        public void InserirDados(string tableName, string[] columns, object[] values)
+        public void InserirDados(string tabela, string[] colunas, object[] valores)
         {
-            string columnList = string.Join(", ", columns);
-            object valueList = string.Join(", ", values);
+            if (colunas.Length != valores.Length)
+            {
+                throw new ArgumentException("O número de colunas deve corresponder ao número de valores.");
+            }
 
-            string query = $"INSERT INTO {tableName} ({columnList}) VALUES ({valueList})";
+            string columnList = string.Join(", ", colunas);
+            string parameterList = string.Join(", ", colunas.Select(col => "@" + col));
+            string query = $"INSERT INTO {tabela} ({columnList}) VALUES ({parameterList})";
 
-            ExecuteQuery(query);
+            if (this.OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                for (int i = 0; i < colunas.Length; i++)
+                {
+                    cmd.Parameters.AddWithValue("@" + colunas[i], valores[i]);
+                }
+
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (MySqlException ex)
+                {
+                    Console.WriteLine($"Erro ao executar a consulta SQL: {ex.Message}");
+                }
+                finally
+                {
+                    this.CloseConnection();
+                }
+            }
         }
-        public void ConsultarDados(string tableName, string[] columns, object[] values)
-        {
-            string columnList = string.Join(", ", columns);
-            object valueList = string.Join(", ", values);
 
-            string query = $"SELECT * FROM {tableName};";
+        public DataTable ConsultarDados(string query)
+        {
+            DataTable dataTable = new DataTable();
+
+            if (this.OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                try
+                {
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    adapter.Fill(dataTable);
+                }
+                catch (MySqlException ex)
+                {
+                    Console.WriteLine($"Erro ao consultar dados: {ex.Message}");
+                }
+                finally
+                {
+                    this.CloseConnection();
+                }
+            }
+
+            return dataTable;
+        }
+
+        public void AtualizarDados(string tabela, string[] colunas, object[] valores, string condicaoColuna, object condicaoValor)
+        {
+            if (colunas.Length != valores.Length)
+            {
+                throw new ArgumentException("O número de colunas deve corresponder ao número de valores.");
+            }
+
+            string setClause = string.Join(", ", colunas.Select(col => $"{col} = @{col}"));
+            string query = $"UPDATE {tabela} SET {setClause} WHERE {condicaoColuna} = @condicaoValor";
+
+            if (this.OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                for (int i = 0; i < colunas.Length; i++)
+                {
+                    cmd.Parameters.AddWithValue("@" + colunas[i], valores[i]);
+                }
+
+                cmd.Parameters.AddWithValue("@conditionValue", condicaoValor);
+
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (MySqlException ex)
+                {
+                    Console.WriteLine($"Erro ao executar a consulta SQL: {ex.Message}");
+                }
+                finally
+                {
+                    this.CloseConnection();
+                }
+            }
         }
     }
 }

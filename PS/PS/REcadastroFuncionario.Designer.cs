@@ -31,9 +31,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Lb_Cadastro = new System.Windows.Forms.Label();
-            this.Tb_CodFunc = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.Btn_Visualizar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.Btn_Cadastrar = new System.Windows.Forms.Button();
@@ -48,6 +45,9 @@
             this.Cb_Cargo = new System.Windows.Forms.ComboBox();
             this.Tb_SenhaFunc = new System.Windows.Forms.TextBox();
             this.Tb_NomeFunc = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.Tb_CodFunc = new System.Windows.Forms.TextBox();
+            this.Lb_Cadastro = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -95,32 +95,6 @@
             this.panel1.Size = new System.Drawing.Size(309, 387);
             this.panel1.TabIndex = 8;
             // 
-            // Lb_Cadastro
-            // 
-            this.Lb_Cadastro.AutoSize = true;
-            this.Lb_Cadastro.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lb_Cadastro.Location = new System.Drawing.Point(20, 46);
-            this.Lb_Cadastro.Name = "Lb_Cadastro";
-            this.Lb_Cadastro.Size = new System.Drawing.Size(106, 28);
-            this.Lb_Cadastro.TabIndex = 15;
-            this.Lb_Cadastro.Text = "RECadastro";
-            // 
-            // Tb_CodFunc
-            // 
-            this.Tb_CodFunc.Location = new System.Drawing.Point(251, 52);
-            this.Tb_CodFunc.Name = "Tb_CodFunc";
-            this.Tb_CodFunc.Size = new System.Drawing.Size(55, 20);
-            this.Tb_CodFunc.TabIndex = 26;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(132, 55);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(113, 13);
-            this.label3.TabIndex = 27;
-            this.label3.Text = "Codigo do Funcionário";
-            // 
             // Btn_Visualizar
             // 
             this.Btn_Visualizar.BackColor = System.Drawing.Color.Khaki;
@@ -151,6 +125,7 @@
             this.Btn_Cadastrar.TabIndex = 40;
             this.Btn_Cadastrar.Text = "Cadastrar";
             this.Btn_Cadastrar.UseVisualStyleBackColor = false;
+            this.Btn_Cadastrar.Click += new System.EventHandler(this.Btn_Cadastrar_Click);
             // 
             // Tb_TelefoneFunc
             // 
@@ -242,6 +217,32 @@
             this.Tb_NomeFunc.Size = new System.Drawing.Size(136, 20);
             this.Tb_NomeFunc.TabIndex = 28;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(132, 55);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(113, 13);
+            this.label3.TabIndex = 27;
+            this.label3.Text = "Codigo do Funcionário";
+            // 
+            // Tb_CodFunc
+            // 
+            this.Tb_CodFunc.Location = new System.Drawing.Point(251, 52);
+            this.Tb_CodFunc.Name = "Tb_CodFunc";
+            this.Tb_CodFunc.Size = new System.Drawing.Size(55, 20);
+            this.Tb_CodFunc.TabIndex = 26;
+            // 
+            // Lb_Cadastro
+            // 
+            this.Lb_Cadastro.AutoSize = true;
+            this.Lb_Cadastro.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lb_Cadastro.Location = new System.Drawing.Point(20, 46);
+            this.Lb_Cadastro.Name = "Lb_Cadastro";
+            this.Lb_Cadastro.Size = new System.Drawing.Size(106, 28);
+            this.Lb_Cadastro.TabIndex = 15;
+            this.Lb_Cadastro.Text = "RECadastro";
+            // 
             // REcadastroFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -252,6 +253,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "REcadastroFuncionario";
             this.Text = "REcadastroFuncionario";
+            this.Load += new System.EventHandler(this.REcadastroFuncionario_Load);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
