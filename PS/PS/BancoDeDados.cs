@@ -182,5 +182,39 @@ namespace PS
                 }
             }
         }
+
+        public DataTable ConsultaEspecifica(string query, Dictionary<string, object> parameters = null)
+        {
+            DataTable dataTable = new DataTable();
+
+            if (this.OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                if (parameters != null)
+                {
+                    foreach (var param in parameters)
+                    {
+                        cmd.Parameters.AddWithValue(param.Key, param.Value);
+                    }
+                }
+
+                try
+                {
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    adapter.Fill(dataTable);
+                }
+                catch (MySqlException ex)
+                {
+                    Console.WriteLine($"Erro ao consultar dados: {ex.Message}");
+                }
+                finally
+                {
+                    this.CloseConnection();
+                }
+            }
+
+            return dataTable;
+        }
     }
 }

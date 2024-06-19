@@ -10,19 +10,19 @@ using System.Windows.Forms;
 
 namespace PS
 {
-    public partial class F_Agendamento : Form
+    public partial class F_ComprarProduto : Form
     {
-        public F_Agendamento()
+        public F_ComprarProduto()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void F_ComprarProduto_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void Tb_NomeAnimal_KeyPress(object sender, KeyPressEventArgs e)
+        private void Tb_CodProduto_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
@@ -30,17 +30,12 @@ namespace PS
             }
         }
 
-        private void F_Agendamento_Load(object sender, EventArgs e)
+        private void Tb_qtProduto_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Tb_RacaAnimal_KeyPress(object sender, KeyPressEventArgs e)
+        private void Tb_qtProduto_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {

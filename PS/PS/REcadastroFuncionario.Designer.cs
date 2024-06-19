@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Dg_Func = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Btn_Visualizar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -49,26 +49,26 @@
             this.Tb_CodFunc = new System.Windows.Forms.TextBox();
             this.Lb_Cadastro = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dg_Func)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Ivory;
-            this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Controls.Add(this.Dg_Func);
             this.panel2.Location = new System.Drawing.Point(338, 12);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(309, 387);
             this.panel2.TabIndex = 9;
             // 
-            // dataGridView1
+            // Dg_Func
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 21);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(272, 346);
-            this.dataGridView1.TabIndex = 0;
+            this.Dg_Func.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dg_Func.Location = new System.Drawing.Point(20, 21);
+            this.Dg_Func.Name = "Dg_Func";
+            this.Dg_Func.Size = new System.Drawing.Size(272, 346);
+            this.Dg_Func.TabIndex = 0;
             // 
             // panel1
             // 
@@ -102,7 +102,7 @@
             this.Btn_Visualizar.Location = new System.Drawing.Point(274, 260);
             this.Btn_Visualizar.Name = "Btn_Visualizar";
             this.Btn_Visualizar.Size = new System.Drawing.Size(22, 23);
-            this.Btn_Visualizar.TabIndex = 41;
+            this.Btn_Visualizar.TabIndex = 8;
             this.Btn_Visualizar.Text = "👁";
             this.Btn_Visualizar.UseVisualStyleBackColor = false;
             // 
@@ -122,7 +122,7 @@
             this.Btn_Cadastrar.Location = new System.Drawing.Point(110, 343);
             this.Btn_Cadastrar.Name = "Btn_Cadastrar";
             this.Btn_Cadastrar.Size = new System.Drawing.Size(75, 23);
-            this.Btn_Cadastrar.TabIndex = 40;
+            this.Btn_Cadastrar.TabIndex = 7;
             this.Btn_Cadastrar.Text = "Cadastrar";
             this.Btn_Cadastrar.UseVisualStyleBackColor = false;
             this.Btn_Cadastrar.Click += new System.EventHandler(this.Btn_Cadastrar_Click);
@@ -132,21 +132,22 @@
             this.Tb_TelefoneFunc.Location = new System.Drawing.Point(82, 198);
             this.Tb_TelefoneFunc.Name = "Tb_TelefoneFunc";
             this.Tb_TelefoneFunc.Size = new System.Drawing.Size(136, 20);
-            this.Tb_TelefoneFunc.TabIndex = 39;
+            this.Tb_TelefoneFunc.TabIndex = 3;
+            this.Tb_TelefoneFunc.TextChanged += new System.EventHandler(this.Tb_TelefoneFunc_TextChanged);
             // 
             // Tb_EmailFunc
             // 
             this.Tb_EmailFunc.Location = new System.Drawing.Point(82, 158);
             this.Tb_EmailFunc.Name = "Tb_EmailFunc";
             this.Tb_EmailFunc.Size = new System.Drawing.Size(136, 20);
-            this.Tb_EmailFunc.TabIndex = 38;
+            this.Tb_EmailFunc.TabIndex = 2;
             // 
             // Tb_VerificacaoSenha
             // 
             this.Tb_VerificacaoSenha.Location = new System.Drawing.Point(153, 262);
             this.Tb_VerificacaoSenha.Name = "Tb_VerificacaoSenha";
             this.Tb_VerificacaoSenha.Size = new System.Drawing.Size(107, 20);
-            this.Tb_VerificacaoSenha.TabIndex = 37;
+            this.Tb_VerificacaoSenha.TabIndex = 5;
             this.Tb_VerificacaoSenha.UseSystemPasswordChar = true;
             // 
             // label5
@@ -197,17 +198,20 @@
             // Cb_Cargo
             // 
             this.Cb_Cargo.FormattingEnabled = true;
+            this.Cb_Cargo.Items.AddRange(new object[] {
+            "Gerente",
+            "Atendente"});
             this.Cb_Cargo.Location = new System.Drawing.Point(84, 301);
             this.Cb_Cargo.Name = "Cb_Cargo";
             this.Cb_Cargo.Size = new System.Drawing.Size(136, 21);
-            this.Cb_Cargo.TabIndex = 30;
+            this.Cb_Cargo.TabIndex = 6;
             // 
             // Tb_SenhaFunc
             // 
             this.Tb_SenhaFunc.Location = new System.Drawing.Point(35, 262);
             this.Tb_SenhaFunc.Name = "Tb_SenhaFunc";
             this.Tb_SenhaFunc.Size = new System.Drawing.Size(112, 20);
-            this.Tb_SenhaFunc.TabIndex = 29;
+            this.Tb_SenhaFunc.TabIndex = 4;
             this.Tb_SenhaFunc.UseSystemPasswordChar = true;
             // 
             // Tb_NomeFunc
@@ -215,7 +219,7 @@
             this.Tb_NomeFunc.Location = new System.Drawing.Point(82, 119);
             this.Tb_NomeFunc.Name = "Tb_NomeFunc";
             this.Tb_NomeFunc.Size = new System.Drawing.Size(136, 20);
-            this.Tb_NomeFunc.TabIndex = 28;
+            this.Tb_NomeFunc.TabIndex = 1;
             // 
             // label3
             // 
@@ -232,6 +236,7 @@
             this.Tb_CodFunc.Name = "Tb_CodFunc";
             this.Tb_CodFunc.Size = new System.Drawing.Size(55, 20);
             this.Tb_CodFunc.TabIndex = 26;
+            this.Tb_CodFunc.TextChanged += new System.EventHandler(this.Tb_CodFunc_TextChanged);
             // 
             // Lb_Cadastro
             // 
@@ -255,7 +260,7 @@
             this.Text = "REcadastroFuncionario";
             this.Load += new System.EventHandler(this.REcadastroFuncionario_Load);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dg_Func)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -265,7 +270,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView Dg_Func;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label Lb_Cadastro;
         private System.Windows.Forms.Label label3;

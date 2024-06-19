@@ -96,7 +96,7 @@
             this.EnderecoCli.Location = new System.Drawing.Point(83, 230);
             this.EnderecoCli.Name = "EnderecoCli";
             this.EnderecoCli.Size = new System.Drawing.Size(136, 20);
-            this.EnderecoCli.TabIndex = 25;
+            this.EnderecoCli.TabIndex = 3;
             // 
             // Btn_Cadastrar
             // 
@@ -105,7 +105,7 @@
             this.Btn_Cadastrar.Location = new System.Drawing.Point(106, 266);
             this.Btn_Cadastrar.Name = "Btn_Cadastrar";
             this.Btn_Cadastrar.Size = new System.Drawing.Size(75, 23);
-            this.Btn_Cadastrar.TabIndex = 24;
+            this.Btn_Cadastrar.TabIndex = 4;
             this.Btn_Cadastrar.Text = "Cadastrar";
             this.Btn_Cadastrar.UseVisualStyleBackColor = false;
             this.Btn_Cadastrar.Click += new System.EventHandler(this.Btn_Cadastrar_Click);
@@ -115,14 +115,15 @@
             this.TelefoneCli.Location = new System.Drawing.Point(83, 191);
             this.TelefoneCli.Name = "TelefoneCli";
             this.TelefoneCli.Size = new System.Drawing.Size(136, 20);
-            this.TelefoneCli.TabIndex = 23;
+            this.TelefoneCli.TabIndex = 2;
+            this.TelefoneCli.TextChanged += new System.EventHandler(this.TelefoneCli_TextChanged);
             // 
             // EmailCli
             // 
             this.EmailCli.Location = new System.Drawing.Point(83, 151);
             this.EmailCli.Name = "EmailCli";
             this.EmailCli.Size = new System.Drawing.Size(136, 20);
-            this.EmailCli.TabIndex = 22;
+            this.EmailCli.TabIndex = 1;
             // 
             // label3
             // 

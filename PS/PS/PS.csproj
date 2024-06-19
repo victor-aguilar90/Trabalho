@@ -63,6 +63,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="F_Agendar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_Agendar.Designer.cs">
+      <DependentUpon>F_Agendar.cs</DependentUpon>
+    </Compile>
     <Compile Include="F_CadastroAgendamento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,12 @@
     <Compile Include="F_CadastroProduto.Designer.cs">
       <DependentUpon>F_CadastroProduto.cs</DependentUpon>
     </Compile>
+    <Compile Include="F_ComprarProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_ComprarProduto.Designer.cs">
+      <DependentUpon>F_ComprarProduto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modelos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -102,6 +114,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="F_Agendar.resx">
+      <DependentUpon>F_Agendar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="F_CadastroAgendamento.resx">
       <DependentUpon>F_CadastroAgendamento.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,6 +129,9 @@
     <EmbeddedResource Include="F_CadastroProduto.resx">
       <DependentUpon>F_CadastroProduto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="F_ComprarProduto.resx">
+      <DependentUpon>F_ComprarProduto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -122,6 +140,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="REcadastroFuncionario.resx">
       <DependentUpon>REcadastroFuncionario.cs</DependentUpon>
@@ -138,6 +157,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cachorrosss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cachorrosss1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

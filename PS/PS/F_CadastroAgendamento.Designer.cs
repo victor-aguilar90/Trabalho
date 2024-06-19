@@ -37,6 +37,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Lb_Cadastro = new System.Windows.Forms.Label();
             this.Tb_NomeAnimal = new System.Windows.Forms.TextBox();
+            this.Btn_gerarExcel = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -45,18 +46,20 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Ivory;
+            this.panel2.Controls.Add(this.Btn_gerarExcel);
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Location = new System.Drawing.Point(338, 12);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(309, 387);
             this.panel2.TabIndex = 7;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(20, 21);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(272, 346);
+            this.dataGridView1.Size = new System.Drawing.Size(272, 325);
             this.dataGridView1.TabIndex = 0;
             // 
             // panel1
@@ -99,6 +102,7 @@
             this.Tb_RacaAnimal.Name = "Tb_RacaAnimal";
             this.Tb_RacaAnimal.Size = new System.Drawing.Size(136, 20);
             this.Tb_RacaAnimal.TabIndex = 22;
+            this.Tb_RacaAnimal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Tb_RacaAnimal_KeyPress);
             // 
             // label1
             // 
@@ -127,6 +131,17 @@
             this.Tb_NomeAnimal.Size = new System.Drawing.Size(136, 20);
             this.Tb_NomeAnimal.TabIndex = 0;
             this.Tb_NomeAnimal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Tb_NomeAnimal_KeyPress);
+            // 
+            // Btn_gerarExcel
+            // 
+            this.Btn_gerarExcel.BackColor = System.Drawing.Color.Khaki;
+            this.Btn_gerarExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_gerarExcel.Location = new System.Drawing.Point(20, 352);
+            this.Btn_gerarExcel.Name = "Btn_gerarExcel";
+            this.Btn_gerarExcel.Size = new System.Drawing.Size(272, 23);
+            this.Btn_gerarExcel.TabIndex = 26;
+            this.Btn_gerarExcel.Text = "Excel";
+            this.Btn_gerarExcel.UseVisualStyleBackColor = false;
             // 
             // F_Agendamento
             // 
@@ -161,5 +176,6 @@
         private System.Windows.Forms.Label Lb_Cadastro;
         private System.Windows.Forms.TextBox Tb_NomeAnimal;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button Btn_gerarExcel;
     }
 }

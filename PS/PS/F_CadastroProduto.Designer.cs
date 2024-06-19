@@ -41,6 +41,7 @@
             this.Lb_Cadastro = new System.Windows.Forms.Label();
             this.DescP = new System.Windows.Forms.TextBox();
             this.NomeProduto = new System.Windows.Forms.TextBox();
+            this.Btn_gerarExcel = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -49,6 +50,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Ivory;
+            this.panel2.Controls.Add(this.Btn_gerarExcel);
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Location = new System.Drawing.Point(338, 12);
             this.panel2.Name = "panel2";
@@ -60,7 +62,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(20, 21);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(272, 346);
+            this.dataGridView1.Size = new System.Drawing.Size(272, 329);
             this.dataGridView1.TabIndex = 0;
             // 
             // panel1
@@ -98,7 +100,7 @@
             this.QtdP.Location = new System.Drawing.Point(37, 191);
             this.QtdP.Name = "QtdP";
             this.QtdP.Size = new System.Drawing.Size(31, 20);
-            this.QtdP.TabIndex = 23;
+            this.QtdP.TabIndex = 3;
             this.QtdP.TextChanged += new System.EventHandler(this.Tb_QuantidadeDeProduto_TextChanged);
             this.QtdP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Tb_TelefoneFunc_KeyPress);
             // 
@@ -107,7 +109,7 @@
             this.PrecoP.Location = new System.Drawing.Point(37, 151);
             this.PrecoP.Name = "PrecoP";
             this.PrecoP.Size = new System.Drawing.Size(136, 20);
-            this.PrecoP.TabIndex = 22;
+            this.PrecoP.TabIndex = 1;
             // 
             // label4
             // 
@@ -171,6 +173,17 @@
             this.NomeProduto.Size = new System.Drawing.Size(136, 20);
             this.NomeProduto.TabIndex = 0;
             // 
+            // Btn_gerarExcel
+            // 
+            this.Btn_gerarExcel.BackColor = System.Drawing.Color.Khaki;
+            this.Btn_gerarExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_gerarExcel.Location = new System.Drawing.Point(20, 356);
+            this.Btn_gerarExcel.Name = "Btn_gerarExcel";
+            this.Btn_gerarExcel.Size = new System.Drawing.Size(272, 23);
+            this.Btn_gerarExcel.TabIndex = 25;
+            this.Btn_gerarExcel.Text = "Excel";
+            this.Btn_gerarExcel.UseVisualStyleBackColor = false;
+            // 
             // F_CadastroProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,5 +222,6 @@
         private System.Windows.Forms.Label Lb_Cadastro;
         private System.Windows.Forms.TextBox DescP;
         private System.Windows.Forms.TextBox NomeProduto;
+        private System.Windows.Forms.Button Btn_gerarExcel;
     }
 }

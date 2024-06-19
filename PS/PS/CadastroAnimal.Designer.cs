@@ -85,7 +85,7 @@
             this.Btn_Cadastrar.Location = new System.Drawing.Point(109, 217);
             this.Btn_Cadastrar.Name = "Btn_Cadastrar";
             this.Btn_Cadastrar.Size = new System.Drawing.Size(75, 23);
-            this.Btn_Cadastrar.TabIndex = 24;
+            this.Btn_Cadastrar.TabIndex = 4;
             this.Btn_Cadastrar.Text = "Cadastrar";
             this.Btn_Cadastrar.UseVisualStyleBackColor = false;
             this.Btn_Cadastrar.Click += new System.EventHandler(this.Btn_Cadastrar_Click);
@@ -95,7 +95,7 @@
             this.CodCli.Location = new System.Drawing.Point(83, 191);
             this.CodCli.Name = "CodCli";
             this.CodCli.Size = new System.Drawing.Size(136, 20);
-            this.CodCli.TabIndex = 23;
+            this.CodCli.TabIndex = 2;
             this.CodCli.TextChanged += new System.EventHandler(this.Tb_CodCli_TextChanged);
             this.CodCli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Tb_TelefoneCli_KeyPress);
             // 
@@ -104,7 +104,7 @@
             this.RacaAnimal.Location = new System.Drawing.Point(83, 151);
             this.RacaAnimal.Name = "RacaAnimal";
             this.RacaAnimal.Size = new System.Drawing.Size(136, 20);
-            this.RacaAnimal.TabIndex = 22;
+            this.RacaAnimal.TabIndex = 1;
             // 
             // label3
             // 
