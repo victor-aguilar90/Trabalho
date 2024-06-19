@@ -6,7 +6,7 @@ CREATE TABLE funcionario (
     nome_func VARCHAR(120),
     email_func VARCHAR(120) UNIQUE,
     senha_func varchar(10)not null,
-    telefone_func VARCHAR(9),
+    telefone_func VARCHAR(12),
     cargo_func varchar(20)
 );
 
