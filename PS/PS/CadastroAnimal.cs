@@ -45,7 +45,7 @@ namespace PS
             string raca = RacaAnimal.Text;
             int codC = int.Parse(CodCli.Text);
 
-            string[] colunas = { "nome_animal", "tipo", "cod_cliente" };
+            string[] colunas = { "nome_animal", "tipo", "cod_cliente"};
             object[] valores = { nome, raca, codC };
 
             try
@@ -64,9 +64,9 @@ namespace PS
 
             dataGridView1.DataSource = dados;
 
-            NomeAnimal.Text = string.Empty;
+            /*NomeAnimal.Text = string.Empty;
             RacaAnimal.Text = string.Empty;
-            CodCli.Text = string.Empty;
+            CodCli.Text = string.Empty;*/
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

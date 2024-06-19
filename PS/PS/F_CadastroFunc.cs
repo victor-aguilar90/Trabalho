@@ -74,10 +74,8 @@ namespace PS
 
 
 
-            string[] colunas = { "nome_func", "sal_func","email_func", "telefone_func", "senha_func", "cod_cargo" };
-            object[] valores = {nomeF, "", emailF, telF, senhaF, "" };
-
-            db.InserirDados("funcionario", colunas, valores);
+            string[] colunas = { "nome_func", "sal_func","email_func", "senha_func", "telefone_func", "cod_cargo" };
+            object[] valores = {nomeF, "", emailF, senhaF,telF, "" };
 
             try
             {
