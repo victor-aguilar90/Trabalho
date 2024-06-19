@@ -1,27 +1,20 @@
 CREATE DATABASE Petshop;
 USE Petshop;
-/*DROP DATABASE Petshop;*/
-
-CREATE TABLE cargo (
-    cod_cargo INT AUTO_INCREMENT PRIMARY KEY,
-    nome_cargo VARCHAR(25) NOT NULL
-);
 
 CREATE TABLE funcionario (
     cod_func INT AUTO_INCREMENT PRIMARY KEY,
-    nome_func VARCHAR(120) NOT NULL,
-    email_func VARCHAR(120) UNIQUE NOT NULL,
-    telefone_func VARCHAR(15),
-    senha_func VARCHAR(255) NOT NULL,
-    cod_cargo INT NOT NULL,
-    FOREIGN KEY (cod_cargo) REFERENCES cargo (cod_cargo) ON DELETE CASCADE
+    nome_func VARCHAR(120),
+    email_func VARCHAR(120) UNIQUE,
+    senha_func varchar(10)not null,
+    telefone_func VARCHAR(9),
+    cargo_func varchar(20)
 );
 
 CREATE TABLE cliente (
     cod_cliente INT AUTO_INCREMENT PRIMARY KEY,
     nome_cli VARCHAR(120) NOT NULL,
-    telefone_cli VARCHAR(15),
-    email VARCHAR(120) UNIQUE,
+    telefone_cli VARCHAR(10),
+    email VARCHAR(120),
     endereco VARCHAR(255)
 );
 
@@ -30,7 +23,7 @@ CREATE TABLE animal (
     nome_animal VARCHAR(120) NOT NULL,
     tipo VARCHAR(50),
     cod_cliente INT NOT NULL,
-    FOREIGN KEY (cod_cliente) REFERENCES cliente(cod_cliente) ON DELETE CASCADE
+    FOREIGN KEY (cod_cliente) REFERENCES cliente(cod_cliente)
 );
 
 CREATE TABLE produto (
@@ -46,11 +39,11 @@ CREATE TABLE produto (
 CREATE TABLE vendas (
     cod_vendas INT AUTO_INCREMENT PRIMARY KEY,
     data_venda DATE NOT NULL,
-    cod_cliente INT,
+    cod_cli INT,
     total DECIMAL(10,2) NOT NULL,
     cod_func INT,
-    FOREIGN KEY (cod_cliente) REFERENCES cliente(cod_cliente) ON DELETE SET NULL,
-    FOREIGN KEY (cod_func) REFERENCES funcionario(cod_func) ON DELETE SET NULL
+    FOREIGN KEY (cod_cli) REFERENCES cliente(cod_cliente),
+    FOREIGN KEY (cod_func) REFERENCES funcionario(cod_func)
 );
 
 CREATE TABLE itens_vendas (
@@ -58,8 +51,8 @@ CREATE TABLE itens_vendas (
     cod_vendas INT NOT NULL,
     cod_produto INT NOT NULL,
     preco DECIMAL(10,2) NOT NULL,
-    FOREIGN KEY (cod_vendas) REFERENCES vendas(cod_vendas) ON DELETE CASCADE,
-    FOREIGN KEY (cod_produto) REFERENCES produto(cod_produto) ON DELETE CASCADE
+    FOREIGN KEY (cod_vendas) REFERENCES vendas(cod_vendas),
+    FOREIGN KEY (cod_produto) REFERENCES produto(cod_produto)
 );
 
 CREATE TABLE servico (
@@ -73,13 +66,24 @@ CREATE TABLE agendamento (
     cod_agendamento INT AUTO_INCREMENT PRIMARY KEY,
     data_agendamento DATE NOT NULL,
     hora_agendamento TIME NOT NULL,
-    cod_cliente INT,
+    cod_cli INT,
     cod_animal INT,
     cod_servico INT,
     cod_func INT,
     status VARCHAR(9),
-    FOREIGN KEY (cod_cliente) REFERENCES cliente(cod_cliente) ON DELETE SET NULL,
-    FOREIGN KEY (cod_animal) REFERENCES animal(cod_animal) ON DELETE SET NULL,
-    FOREIGN KEY (cod_servico) REFERENCES servico(cod_servico) ON DELETE SET NULL,
-    FOREIGN KEY (cod_func) REFERENCES funcionario(cod_func) ON DELETE SET NULL
+    FOREIGN KEY (cod_cli) REFERENCES cliente(cod_cliente),
+    FOREIGN KEY (cod_animal) REFERENCES animal(cod_animal),
+    FOREIGN KEY (cod_servico) REFERENCES servico(cod_servico),
+    FOREIGN KEY (cod_func) REFERENCES funcionario(cod_func)
 );
+
+insert into funcionario(nome_func, email_func, senha_func, telefone_func, cargo_func) values
+("Felipy", "felipy@gmail.com", "Peixe", "11 9922332", "Gerente");
+
+select * from funcionario;
+
+select * from produto;
+
+select * from cliente;
+
+select * from animal;
